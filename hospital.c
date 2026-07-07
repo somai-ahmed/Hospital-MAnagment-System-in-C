@@ -2,22 +2,22 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<string.h>
-void clrscr(void)
-{
-    system("cls()");
-}
+#define clrscr() system("cls") 
+
 void emp(void);
 void menu(void);
 void pat(void);
 void inv(void);
-struct address
+
+typedef struct address
 {
     int hno;
     char street[40];
     char city[40];
     char state[40];
-};
-struct patient
+}adress;
+
+typedef struct patient
 {
     char name[40];
     char fname[40];
@@ -25,7 +25,7 @@ struct patient
     char bg[3];
     char gender;
     char regn[10];
-    struct address a;
+    address a;
     char ph[10];
     char disease[60];
     char doc_name[40];
@@ -33,8 +33,9 @@ struct patient
     char date[10];
     char treatment[40];
     char med[40];
-};
-struct staff
+}patient;
+
+typedef struct staff
 {
     char name[40];
     char fname[40];
@@ -42,12 +43,13 @@ struct staff
     char bg[3];
     char gender;
     char uid[10];
-    struct address b;
+    address b;
     char ph[10];
     double salary;
     char desig[40];
-};
-struct inventory
+}staff;
+
+typedef struct inventory
 {
     int sno;
     char name[30];
@@ -55,7 +57,8 @@ struct inventory
     int qnty;
     float price;
     float amount;
-};//check
+}inventory;
+
 void menu()
 {
     char choice;
@@ -97,8 +100,8 @@ void pat()
     char reg[20],pname[40];
     int i=0;
     long int recsize;
-    struct patient p;
-    fp=fopen("pat.DAT","rb+");
+    patient p;
+    fp=fopen("pat.DAT","rb+"); /*unfound pat.DAT --if the programmer think that is a 
     if(fp==NULL)
         {
             fp=fopen("pat.DAT","wb+");
