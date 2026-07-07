@@ -1,0 +1,5 @@
+/*
+The programmer declared the file pat.DAT but did not create it.
+This file is created here because it is required by the hospital system
+to store patient data and ensure the proper execution of the program.
+*/
